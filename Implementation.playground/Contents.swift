@@ -74,7 +74,7 @@ print("==================")
 
 //: ### Iterate over the indexes and values, moving from start to end
 // Print the index and value, from first to last
-for i in 0..<numbers.count {
+for i in 0..<numbers.count  {
     print("Index is \(i) and the value is \(numbers[i])")
 }
 print("==================")
@@ -112,4 +112,34 @@ numbers
  */
 
 // Begin your implementation below...
+
+//Created the empty array
+//var numbers : [Int] = []
+
+
+//Add 20 random numbers to unsorted
+for _ in 1...20 {
+    numbers.append( random(between: 1, and: 50) )
+}
+
+// Print the array
+print(numbers)
+
+
+// Create a loop that runs several times. Everytime the code runs, the amount of time -1
+for j in stride(from: numbers.count - 2, through: 0, by: -1) {
+    for i in 0...j
+    {
+        //Comparing the numbers that are next to each other in the array (e.x. if item in index 0 is greater than item in index 1)
+        if numbers[i] > numbers[i + 1]  {
+            
+            //Setting the first index to the temporary value, and move the second index number to the position of first index value.
+            let tempValue = numbers[i]
+            numbers[i] = numbers[i+1]
+            numbers[i+1] = tempValue
+        }
+    }
+}
+
+print(numbers)
 
